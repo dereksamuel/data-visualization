@@ -1,0 +1,24 @@
+:root {
+  --color-primary: #7ea4a9;
+  --color-secondary: #e0e0e0;
+  --color-success: #aac4ba;
+  --color-dark: #505867;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(37, 37, 37);
+  font-family: "Poppins", sans-serif !important;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.calendarElement {
+  margin-top: 10px;
+}

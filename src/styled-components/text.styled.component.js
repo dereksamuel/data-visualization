@@ -1,0 +1,14 @@
+import styled from "styled-components";
+
+export const Title = styled.h1`
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const Text = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+`;
