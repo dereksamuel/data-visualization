@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colorSecondary } from "./variables.styled.component.js";
+import { size } from "./breakpoint.styled.component.js";
 
 export const FilterLayout = styled.ul`
   max-height: 100%;
@@ -7,9 +8,16 @@ export const FilterLayout = styled.ul`
   display: block;
   /* background-color: ${colorSecondary}; */
   grid-column: 1 / 2;
+  grid-row: 1 / 3;
   border-right: 2px solid ${colorSecondary};
   box-shadow: 0 0 35px ${colorSecondary};
   overflow-y: auto;
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    overflow-y: initial;
+  }
 `;
 
 export const MainLayout = styled.main`
@@ -18,6 +26,7 @@ export const MainLayout = styled.main`
   width: 100%;
   display: block;
   grid-column: 2 / 3;
+  grid-row: 1 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,10 +37,19 @@ export const MainLayout = styled.main`
     max-width: 600px;
     max-height: 600px;
   }
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  }
 `;
 
 export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(300px, 500px) 1fr;
   height: 100%;
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    grid-template-rows: 1fr 100%;
+  }
 `;
