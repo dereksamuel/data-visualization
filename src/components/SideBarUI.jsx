@@ -20,7 +20,7 @@ function SideBarUI({ onChange }) {
   const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Radar"];
   const kindOfData = [
     "Datos de ventas por región",
-    "Datos de usuarios registrados por mes",
+    "Datos de videos por región",
   ];
 
   return (
@@ -45,7 +45,7 @@ function SideBarUI({ onChange }) {
       </FilterItem>
       <FilterItem>
         <RadioGroupUI
-          label="Datos del gráfico:"
+          label="Gráfico de consumo internacional de Netflix:"
           value={filterState.kindOfData}
           onChange={(e) => onChange("kindOfData", e)}
         >
