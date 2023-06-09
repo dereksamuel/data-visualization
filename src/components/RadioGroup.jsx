@@ -3,11 +3,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 
-import { useChangeValue } from "../hooks/useChangeValue";
-
-function RadioGroupUI({ label, children, handleChange, defaultValue }) {
-  const [value, onChange] = useChangeValue(defaultValue, handleChange);
-
+function RadioGroupUI({ label, children, onChange, value }) {
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">{label}</FormLabel>

@@ -3,6 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import FilterAltOutlined from "@mui/icons-material/FilterAltOutlined";
+import { useSelector } from "react-redux";
 
 import {
   FilterItem,
@@ -14,16 +15,9 @@ import { Filter } from "./Filter";
 import { RadioGroupUI } from "./RadioGroup";
 import { DateRangeUI } from "./DateRangeUI";
 
-function SideBarUI() {
-  const kindOfGraphs = [
-    "Barras",
-    "Líneas",
-    "Torta",
-    "Dona",
-    "Burbujas",
-    "Radar",
-    "Area",
-  ];
+function SideBarUI({ onChange }) {
+  const filterState = useSelector((store) => store.filter);
+  const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Radar"];
   const kindOfData = [
     "Datos de ventas por región",
     "Datos de usuarios registrados por mes",
@@ -37,7 +31,11 @@ function SideBarUI() {
         </Title>
       </RegularFilterItem>
       <FilterItem>
-        <Filter label="Tipo de gráfica" defaultValue="Barras">
+        <Filter
+          label="Tipo de gráfica"
+          value={filterState.kindOfGraph}
+          onChange={(e) => onChange("kindOfGraph", e)}
+        >
           {kindOfGraphs.map((graph, index) => (
             <MenuItem value={graph} key={index}>
               {graph}
@@ -48,7 +46,8 @@ function SideBarUI() {
       <FilterItem>
         <RadioGroupUI
           label="Datos del gráfico:"
-          defaultValue="Datos de ventas por región"
+          value={filterState.kindOfData}
+          onChange={(e) => onChange("kindOfData", e)}
         >
           {kindOfData.map((data, index) => (
             <FormControlLabel
@@ -61,7 +60,11 @@ function SideBarUI() {
         </RadioGroupUI>
       </FilterItem>
       <FilterItem>
-        <DateRangeUI label="Datos por rango de fecha:" />
+        <DateRangeUI
+          label="Datos por rango de fecha:"
+          onChange={(e) => onChange("perRange", e)}
+          range={filterState.perRange}
+        />
       </FilterItem>
     </FilterLayout>
   );

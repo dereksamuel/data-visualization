@@ -1,9 +1,15 @@
-import React from "react";
-import { Bar } from "react-chartjs-2";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 import { MainLayout } from "../styled-components/layout.styled.component";
+import { Chart } from "chart.js";
+import { findType } from "../utils/findType";
+
+let myChart;
 
 function MainUI() {
+  const chartContainer = useRef(null);
+  const filterState = useSelector((store) => store.filter);
   const options = {
     responsive: true,
     plugins: {
@@ -23,7 +29,6 @@ function MainUI() {
       },
     },
   };
-
   const labels = [
     "January",
     "February",
@@ -33,7 +38,6 @@ function MainUI() {
     "June",
     "July",
   ];
-
   const data = {
     labels,
     datasets: [
@@ -49,10 +53,23 @@ function MainUI() {
       },
     ],
   };
+  useEffect(() => {
+    if (chartContainer.current) {
+      const ctx = chartContainer.current.getContext("2d");
+      if (myChart) {
+        myChart.destroy();
+      }
+      myChart = new Chart(ctx, {
+        type: findType(filterState.kindOfGraph),
+        data,
+        options,
+      });
+    }
+  }, [filterState.kindOfGraph]);
 
   return (
     <MainLayout>
-      <Bar options={options} data={data} />
+      <canvas ref={chartContainer} />
     </MainLayout>
   );
 }

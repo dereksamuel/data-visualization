@@ -6,7 +6,7 @@ export const FilterLayout = styled.ul`
   width: 100%;
   display: block;
   /* background-color: ${colorSecondary}; */
-  grid-area: "filter-layout";
+  grid-column: 1 / 2;
   border-right: 2px solid ${colorSecondary};
   box-shadow: 0 0 35px ${colorSecondary};
   overflow-y: auto;
@@ -17,19 +17,21 @@ export const MainLayout = styled.main`
   padding: 30px;
   width: 100%;
   display: block;
-  grid-area: "main-layout";
+  grid-column: 2 / 3;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   canvas {
     position: sticky;
     top: 0;
+    max-width: 600px;
+    max-height: 600px;
   }
 `;
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-areas: "filter-layout main-layout main-layout";
-  grid-template-columns: minmax(300px, 400px);
+  grid-template-columns: minmax(300px, 500px) 1fr;
   height: 100%;
 `;

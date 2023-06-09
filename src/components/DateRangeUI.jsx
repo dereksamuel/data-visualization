@@ -3,28 +3,21 @@ import { DateRange } from "react-date-range";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-import { useChangeValue } from "../hooks/useChangeValue";
-
-function DateRangeUI({ label, handleChange }) {
-  const [range, onChange] = useChangeValue(
-    [
-      {
-        startDate: new Date(),
-        endDate: new Date(),
-        key: "selection",
-      },
-    ],
-    handleChange,
-  );
-  const onChangeHandler = (item) =>
-    onChange({ target: { value: [item.selection] } });
+function DateRangeUI({ label, onChange, range }) {
+  const newRangeResult = [
+    {
+      ...range[0],
+      startDate: new Date(range[0].startDate),
+      endDate: new Date(range[0].endDate),
+    },
+  ];
 
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">{label}</FormLabel>
       <DateRange
-        onChange={onChangeHandler}
-        ranges={range}
+        onChange={onChange}
+        ranges={newRangeResult}
         months={1}
         direction="horizontal"
         moveRangeOnFirstSelection={false}
