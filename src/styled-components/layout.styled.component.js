@@ -17,6 +17,12 @@ export const FilterLayout = styled.ul`
     grid-row: 2 / 3;
     grid-column: 1 / 3;
     overflow-y: initial;
+    position: fixed;
+    background-color: white;
+    z-index: 8;
+    visibility: hidden;
+    transition: 0.5s all ease-in-out;
+    transform: translateX(-1000px);
   }
 `;
 
@@ -47,9 +53,22 @@ export const MainLayout = styled.main`
 export const ContainerChart = styled.div`
   width: 600px;
   height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow-x: auto;
 
   @media screen and (max-width: ${size.desktopBreakPoint}) {
-    width: 400px;
+    width: 100%;
+    min-width: 400px;
+  }
+`;
+
+export const ContainerMain = styled.div`
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    width: 100%;
   }
 `;
 
@@ -59,7 +78,7 @@ export const GridContainer = styled.div`
   height: 100%;
 
   @media screen and (max-width: ${size.desktopBreakPoint}) {
-    grid-template-rows: 500px 100%;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -67,6 +86,17 @@ export const RedDay = styled.span`
   color: red !important;
   background-color: white;
   padding: 3px;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 16px;
+`;
+
+export const ContainerMenuBtn = styled.div`
+  display: none;
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 `;

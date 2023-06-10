@@ -39,8 +39,18 @@ function SideBar() {
       }),
     );
   };
+  const onShowMenu = () => {
+    const $filterLayout = document.getElementById("filter-layout");
+    $filterLayout.classList.add("displayMenu");
+  };
 
-  return <SideBarUI onChange={onChange} onRestartFilters={onRestartFilters} />;
+  return (
+    <SideBarUI
+      onChange={onChange}
+      onRestartFilters={onRestartFilters}
+      onShowMenu={onShowMenu}
+    />
+  );
 }
 
 export { SideBar };

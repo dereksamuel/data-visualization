@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 
 import {
   ContainerChart,
+  ContainerMain,
   MainLayout,
 } from "../styled-components/layout.styled.component";
 import { useCreateChart } from "../hooks/useCreateChart";
@@ -13,7 +14,7 @@ function MainUI() {
 
   return (
     <MainLayout>
-      <div>
+      <ContainerMain>
         <ContainerMainTitle>
           <Title>Consumo internacional de Netflix</Title>
           <SubTitle>{title}</SubTitle>
@@ -21,7 +22,7 @@ function MainUI() {
         <ContainerChart>
           <canvas ref={chartContainer} />
         </ContainerChart>
-      </div>
+      </ContainerMain>
     </MainLayout>
   );
 }
