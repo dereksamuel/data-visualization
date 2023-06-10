@@ -44,12 +44,21 @@ export const MainLayout = styled.main`
   }
 `;
 
+export const ContainerChart = styled.div`
+  width: 600px;
+  height: fit-content;
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    width: 400px;
+  }
+`;
+
 export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(300px, 500px) 1fr;
   height: 100%;
 
   @media screen and (max-width: ${size.desktopBreakPoint}) {
-    grid-template-rows: 1fr 100%;
+    grid-template-rows: 500px 100%;
   }
 `;

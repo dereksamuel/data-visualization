@@ -1,15 +1,22 @@
 import { Chart } from "chart.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { findType } from "../utils/findType";
 import db from "../assets/db/index.json";
 import randomColor from "randomcolor";
+import { fromToDateText } from "../utils/dates";
 
 let myChart;
 
 const useCreateChart = (chartContainer) => {
   const filterState = useSelector((store) => store.filter);
+  const [title, setTitle] = useState(
+    fromToDateText(
+      filterState.perRange[0].startDate,
+      filterState.perRange[0].endDate,
+    ),
+  );
   const options = {
     responsive: true,
     plugins: {
@@ -24,8 +31,7 @@ const useCreateChart = (chartContainer) => {
         },
       },
       title: {
-        display: true,
-        text: "Chart.js Bar Chart",
+        display: false,
       },
     },
   };
@@ -78,9 +84,16 @@ const useCreateChart = (chartContainer) => {
         options,
       });
     }
-  }, [filterState.kindOfGraph, filterState.kindOfData]);
+
+    setTitle(
+      fromToDateText(
+        filterState.perRange[0].startDate,
+        filterState.perRange[0].endDate,
+      ),
+    );
+  }, [filterState]);
+
+  return [title, setTitle];
 };
 
 export { useCreateChart };
-
-// FIXME: To fix data range filter and clean
