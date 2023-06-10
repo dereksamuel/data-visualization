@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { generateDate, sortedDb } from "../../utils/dates";
 
-console.log(generateDate(sortedDb[0].Date));
-
 export const FilterEmptyState = {
   kindOfGraph: "Barras",
   kindOfData: "Datos de ventas por región",

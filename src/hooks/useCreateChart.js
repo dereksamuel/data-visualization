@@ -37,8 +37,6 @@ const useCreateChart = (chartContainer) => {
     datasets: filterByDate,
   };
 
-  console.log(data);
-
   useEffect(() => {
     if (chartContainer.current) {
       const ctx = chartContainer.current.getContext("2d");

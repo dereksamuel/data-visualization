@@ -1,8 +1,6 @@
 import randomColor from "randomcolor";
 
 export const onSwitchData = (filteredData, dataset) => {
-  console.log(filteredData, "filteredData");
-
   const actions = {
     Basic: filteredData.map((country) => country["Cost Per Month - Basic ($)"]),
     Premium: filteredData.map(
