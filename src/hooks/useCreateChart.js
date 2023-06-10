@@ -4,73 +4,40 @@ import { useSelector } from "react-redux";
 
 import { findType } from "../utils/findType";
 import db from "../assets/db/index.json";
-import randomColor from "randomcolor";
-import { fromToDateText } from "../utils/dates";
+import { fromToDateText, generateDate } from "../utils/dates";
+import { config, onSwitchData } from "../utils/chartConfiguration";
 
 let myChart;
 
 const useCreateChart = (chartContainer) => {
   const filterState = useSelector((store) => store.filter);
-  const [title, setTitle] = useState(
-    fromToDateText(
-      filterState.perRange[0].startDate,
-      filterState.perRange[0].endDate,
-    ),
-  );
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          // This more specific font property overrides the global property
-          font: {
-            family: "Poppins",
-            size: 16,
-          },
-        },
-      },
-      title: {
-        display: false,
-      },
-    },
-  };
-  const labels = db.map((country) => country.Country);
+  const startDate = filterState.perRange[0].startDate;
+  const endDate = filterState.perRange[0].endDate;
+  const defaultValueTitle = fromToDateText(startDate, endDate);
+  const [title, setTitle] = useState(defaultValueTitle);
+
   const datasets =
     filterState.kindOfData === "Datos de ventas por región"
-      ? [
-          {
-            label: "Basic",
-            data: db.map((country) => country["Cost Per Month - Basic ($)"]),
-            backgroundColor: randomColor(),
-          },
-          {
-            label: "Premium",
-            data: db.map((country) => country["Cost Per Month - Premium ($)"]),
-            backgroundColor: randomColor(),
-          },
-          {
-            label: "Standard",
-            data: db.map((country) => country["Cost Per Month - Standard ($)"]),
-            backgroundColor: randomColor(),
-          },
-        ]
-      : [
-          {
-            label: "Películas",
-            data: db.map((country) => country["No. of Movies"]),
-            backgroundColor: randomColor(),
-          },
-          {
-            label: "Series",
-            data: db.map((country) => country["No. of TV Shows"]),
-            backgroundColor: randomColor(),
-          },
-        ];
+      ? config.datasetOne
+      : config.datasetTwo;
+  const filteredData = db.filter((country) => {
+    return (
+      generateDate(country.Date) >= new Date(startDate) &&
+      generateDate(country.Date) <= new Date(endDate)
+    );
+  });
+  const filterByDate = datasets.map((dataset) => ({
+    ...dataset,
+    data: onSwitchData(filteredData, dataset),
+  }));
+  const labels = filteredData.map((country) => country.Country);
+
   const data = {
     labels,
-    datasets,
+    datasets: filterByDate,
   };
+
+  console.log(data);
 
   useEffect(() => {
     if (chartContainer.current) {
@@ -81,16 +48,11 @@ const useCreateChart = (chartContainer) => {
       myChart = new Chart(ctx, {
         type: findType(filterState.kindOfGraph),
         data,
-        options,
+        options: config.options,
       });
     }
 
-    setTitle(
-      fromToDateText(
-        filterState.perRange[0].startDate,
-        filterState.perRange[0].endDate,
-      ),
-    );
+    setTitle(defaultValueTitle);
   }, [filterState]);
 
   return [title, setTitle];

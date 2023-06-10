@@ -21,3 +21,7 @@ export const fromToDateText = (startDate, endDate) => {
     "PPP",
   )}`;
 };
+
+export const fromDateToText = (date) => {
+  return format(new Date(date), "yyyy-MM-dd");
+};
