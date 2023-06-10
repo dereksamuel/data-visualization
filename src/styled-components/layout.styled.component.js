@@ -16,7 +16,6 @@ export const FilterLayout = styled.ul`
   @media screen and (max-width: ${size.desktopBreakPoint}) {
     grid-row: 2 / 3;
     grid-column: 1 / 3;
-    overflow-y: initial;
     position: fixed;
     background-color: white;
     z-index: 8;
@@ -53,6 +52,7 @@ export const MainLayout = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   canvas {
     position: sticky;
