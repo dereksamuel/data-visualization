@@ -41,7 +41,17 @@ function SideBar() {
   };
   const onShowMenu = () => {
     const $filterLayout = document.getElementById("filter-layout");
+    const $overlay = document.getElementById("overlay");
+
     $filterLayout.classList.add("displayMenu");
+    $overlay.classList.add("hide");
+  };
+  const onHideMenu = () => {
+    const $filterLayout = document.getElementById("filter-layout");
+    const $overlay = document.getElementById("overlay");
+
+    $filterLayout.classList.remove("displayMenu");
+    $overlay.classList.remove("hide");
   };
 
   return (
@@ -49,6 +59,7 @@ function SideBar() {
       onChange={onChange}
       onRestartFilters={onRestartFilters}
       onShowMenu={onShowMenu}
+      onHideMenu={onHideMenu}
     />
   );
 }

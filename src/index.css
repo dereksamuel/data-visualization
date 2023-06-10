@@ -41,3 +41,17 @@ ul.displayMenu {
   visibility: visible;
   transform: translateX(0);
 }
+
+div.hide {
+  visibility: visible;
+  display: initial;
+}
+
+@keyframes showFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}

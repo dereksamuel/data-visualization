@@ -23,6 +23,23 @@ export const FilterLayout = styled.ul`
     visibility: hidden;
     transition: 0.5s all ease-in-out;
     transform: translateX(-1000px);
+    max-width: 350px;
+  }
+`;
+
+export const Overlay = styled.div`
+  display: none;
+  transition: 1s all;
+  opacity: 0;
+
+  @media screen and (max-width: ${size.desktopBreakPoint}) {
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+    background-color: black;
+    width: 100%;
+    animation: showFade 1s ease-in-out forwards;
+    height: 100%;
   }
 `;
 
@@ -62,7 +79,7 @@ export const ContainerChart = styled.div`
 
   @media screen and (max-width: ${size.desktopBreakPoint}) {
     width: 100%;
-    min-width: 400px;
+    min-width: 320px;
   }
 `;
 

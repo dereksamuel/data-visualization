@@ -10,7 +10,9 @@ import Menu from "@mui/icons-material/Menu";
 import {
   ContainerMenuBtn,
   FilterItem,
+  FilterItemClose,
   FilterLayout,
+  Overlay,
   RegularFilterItem,
   Title,
 } from "../styled-components";
@@ -18,7 +20,7 @@ import { Filter } from "./Filter";
 import { RadioGroupUI } from "./RadioGroup";
 import { DateRangeUI } from "./DateRangeUI";
 
-function SideBarUI({ onChange, onRestartFilters, onShowMenu }) {
+function SideBarUI({ onChange, onRestartFilters, onShowMenu, onHideMenu }) {
   const filterState = useSelector((store) => store.filter);
   const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Burbujas"];
   const kindOfData = [
@@ -28,12 +30,23 @@ function SideBarUI({ onChange, onRestartFilters, onShowMenu }) {
 
   return (
     <>
+      <Overlay id="overlay" />
       <ContainerMenuBtn>
         <Button onClick={onShowMenu}>
           <Menu style={{ fontSize: "3rem" }} />
         </Button>
       </ContainerMenuBtn>
       <FilterLayout id="filter-layout">
+        <FilterItemClose>
+          <Button
+            onClick={onHideMenu}
+            variant="outlined"
+            size="medium"
+            fullWidth
+          >
+            Cerrar
+          </Button>
+        </FilterItemClose>
         <RegularFilterItem>
           <Title>
             <FilterAltOutlined /> Filtros:
