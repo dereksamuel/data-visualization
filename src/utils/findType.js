@@ -4,7 +4,7 @@ const findType = (kindOfGraph) => {
     Líneas: "line",
     Dona: "doughnut",
     Torta: "pie",
-    Radar: "radar",
+    Burbujas: "bubble",
   };
 
   return result[kindOfGraph] || result["Barras"];

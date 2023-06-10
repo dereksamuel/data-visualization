@@ -62,3 +62,11 @@ export const GridContainer = styled.div`
     grid-template-rows: 500px 100%;
   }
 `;
+
+export const RedDay = styled.span`
+  color: red !important;
+  background-color: white;
+  padding: 3px;
+  font-weight: 900;
+  font-size: 16px;
+`;

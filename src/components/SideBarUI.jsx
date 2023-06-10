@@ -18,7 +18,7 @@ import { DateRangeUI } from "./DateRangeUI";
 
 function SideBarUI({ onChange, onRestartFilters }) {
   const filterState = useSelector((store) => store.filter);
-  const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Radar"];
+  const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Burbujas"];
   const kindOfData = [
     "Datos de ventas por región",
     "Datos de videos por región",

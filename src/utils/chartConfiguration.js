@@ -38,24 +38,29 @@ export const config = {
     {
       label: "Basic",
       backgroundColor: randomColor(),
+      fill: true,
     },
     {
       label: "Premium",
       backgroundColor: randomColor(),
+      fill: true,
     },
     {
       label: "Standard",
       backgroundColor: randomColor(),
+      fill: true,
     },
   ],
   datasetTwo: [
     {
       label: "Películas",
       backgroundColor: randomColor(),
+      fill: true,
     },
     {
       label: "Series",
       backgroundColor: randomColor(),
+      fill: true,
     },
   ],
 };
