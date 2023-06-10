@@ -9,6 +9,9 @@ export const RegularFilterItem = styled.li`
   ${generalItemStyles}
   padding-top: 15px;
   padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const FilterItem = styled.li`

@@ -2,6 +2,7 @@ import React from "react";
 import { SideBarUI } from "./SideBarUI";
 import { useDispatch } from "react-redux";
 import { change } from "../redux/states/filter";
+import { generateDate, sortedDb } from "../utils/dates";
 
 function SideBar() {
   const dispatch = useDispatch();
@@ -23,8 +24,23 @@ function SideBar() {
 
     dispatch(change({ [key]: value }));
   };
+  const onRestartFilters = () => {
+    dispatch(change({ kindOfGraph: "Barras" }));
+    dispatch(change({ kindOfData: "Datos de ventas por región" }));
+    dispatch(
+      change({
+        perRange: [
+          {
+            startDate: `${generateDate(sortedDb[sortedDb.length - 1].Date)}`,
+            endDate: `${generateDate(sortedDb[0].Date)}`,
+            key: "selection",
+          },
+        ],
+      }),
+    );
+  };
 
-  return <SideBarUI onChange={onChange} />;
+  return <SideBarUI onChange={onChange} onRestartFilters={onRestartFilters} />;
 }
 
 export { SideBar };

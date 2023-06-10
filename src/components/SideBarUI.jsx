@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import MenuItem from "@mui/material/MenuItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Button from "@mui/material/Button";
 import Radio from "@mui/material/Radio";
 import FilterAltOutlined from "@mui/icons-material/FilterAltOutlined";
-import { useSelector } from "react-redux";
 
 import {
   FilterItem,
@@ -15,7 +16,7 @@ import { Filter } from "./Filter";
 import { RadioGroupUI } from "./RadioGroup";
 import { DateRangeUI } from "./DateRangeUI";
 
-function SideBarUI({ onChange }) {
+function SideBarUI({ onChange, onRestartFilters }) {
   const filterState = useSelector((store) => store.filter);
   const kindOfGraphs = ["Barras", "Líneas", "Dona", "Torta", "Radar"];
   const kindOfData = [
@@ -29,6 +30,9 @@ function SideBarUI({ onChange }) {
         <Title>
           <FilterAltOutlined /> Filtros:
         </Title>
+        <Button variant="contained" onClick={onRestartFilters}>
+          REINICIAR
+        </Button>
       </RegularFilterItem>
       <FilterItem>
         <Filter
