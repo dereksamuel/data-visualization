@@ -102,9 +102,12 @@ export const GridContainer = styled.div`
 export const RedDay = styled.span`
   color: red !important;
   background-color: white;
-  padding: 3px;
+  padding: 0 3px;
   font-weight: 700;
   font-size: 16px;
+  border-radius: 50%;
+  height: 20px;
+  line-height: 23px;
 `;
 
 export const ContainerMenuBtn = styled.div`
