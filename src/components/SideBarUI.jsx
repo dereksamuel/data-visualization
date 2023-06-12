@@ -30,7 +30,7 @@ function SideBarUI({ onChange, onRestartFilters, onShowMenu, onHideMenu }) {
 
   return (
     <>
-      <Overlay id="overlay" />
+      <Overlay id="overlay" onClick={onHideMenu} />
       <ContainerMenuBtn>
         <Button onClick={onShowMenu}>
           <Menu style={{ fontSize: "3rem" }} />
