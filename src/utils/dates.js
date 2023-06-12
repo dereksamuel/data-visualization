@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import db from "../assets/db/index.json";
+import db from "@/assets/db/index.json";
 
 export const generateDate = (date) => {
   const dateArray = date.split("-");

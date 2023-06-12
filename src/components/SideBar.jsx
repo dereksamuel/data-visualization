@@ -1,8 +1,8 @@
 import React from "react";
 import { SideBarUI } from "./SideBarUI";
 import { useDispatch } from "react-redux";
-import { change } from "../redux/states/filter";
-import { generateDate, sortedDb } from "../utils/dates";
+import { change } from "@/redux/states/filter";
+import { generateDate, sortedDb } from "@/utils/dates";
 
 function SideBar() {
   const dispatch = useDispatch();

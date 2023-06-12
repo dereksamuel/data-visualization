@@ -4,9 +4,9 @@ import {
   ContainerChart,
   ContainerMain,
   MainLayout,
-} from "../styled-components/layout.styled.component";
-import { useCreateChart } from "../hooks/useCreateChart";
-import { ContainerMainTitle, SubTitle, Title } from "../styled-components";
+} from "@/styled-components/layout.styled.component";
+import { useCreateChart } from "@/hooks/useCreateChart";
+import { ContainerMainTitle, SubTitle, Title } from "@/styled-components";
 
 function MainUI() {
   const chartContainer = useRef(null);

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { generateDate, sortedDb } from "../../utils/dates";
+import { generateDate, sortedDb } from "@/utils/dates";
 
 export const FilterEmptyState = {
   kindOfGraph: "Barras",

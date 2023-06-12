@@ -15,7 +15,7 @@ import {
   Overlay,
   RegularFilterItem,
   Title,
-} from "../styled-components";
+} from "@/styled-components";
 import { Filter } from "./Filter";
 import { RadioGroupUI } from "./RadioGroup";
 import { DateRangeUI } from "./DateRangeUI";

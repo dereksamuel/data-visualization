@@ -4,8 +4,8 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { format } from "date-fns";
 
-import { sortedDb } from "../utils/dates.js";
-import { RedDay } from "../styled-components/";
+import { sortedDb } from "@/utils/dates.js";
+import { RedDay } from "@/styled-components/";
 
 function DateRangeUI({ label, onChange, range }) {
   const newRangeResult = [

@@ -2,9 +2,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { Provider } from "react-redux";
 
-import { SideBarUI } from "../components/SideBarUI";
-import { kindOfData } from "../__mocks__/kindOf.mock";
-import { store } from "../redux/store";
+import { SideBarUI } from "@/components/SideBarUI";
+import { kindOfData } from "@/__mocks__/kindOf.mock";
+import { store } from "@/redux/store";
 
 describe("SideBarUI", () => {
   afterEach(cleanup);

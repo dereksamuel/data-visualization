@@ -2,9 +2,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { Provider } from "react-redux";
 
-import { MainUI } from "../components/MainUI";
-import { store } from "../redux/store";
-import { getContext } from "../__mocks__/canvas.mock";
+import { MainUI } from "@/components/MainUI";
+import { store } from "@/redux/store";
+import { getContext } from "@/__mocks__/canvas.mock";
 
 describe("MainUI", () => {
   afterEach(cleanup);

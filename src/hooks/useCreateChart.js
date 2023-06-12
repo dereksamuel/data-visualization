@@ -2,10 +2,10 @@ import { Chart } from "chart.js";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { findType } from "../utils/findType";
-import db from "../assets/db/index.json";
-import { fromToDateText, generateDate } from "../utils/dates";
-import { config, onSwitchData } from "../utils/chartConfiguration";
+import { findType } from "@/utils/findType";
+import db from "@/assets/db/index.json";
+import { fromToDateText, generateDate } from "@/utils/dates";
+import { config, onSwitchData } from "@/utils/chartConfiguration";
 
 let myChart;
 
