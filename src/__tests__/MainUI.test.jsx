@@ -2,7 +2,6 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { Provider } from "react-redux";
 
-import { SideBarUI } from "../components/SideBarUI";
 import { MainUI } from "../components/MainUI";
 import { store } from "../redux/store";
 import { getContext } from "../__mocks__/canvas.mock";
@@ -14,7 +13,6 @@ describe("MainUI", () => {
     window.HTMLCanvasElement.prototype.getContext = getContext;
     render(
       <Provider store={store}>
-        <SideBarUI />
         <MainUI />
       </Provider>,
     );
