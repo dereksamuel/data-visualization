@@ -36,7 +36,7 @@ function SideBarUI({ onChange, onRestartFilters, onShowMenu, onHideMenu }) {
           <Menu style={{ fontSize: "3rem" }} />
         </Button>
       </ContainerMenuBtn>
-      <FilterLayout id="filter-layout">
+      <FilterLayout id="filter-layout" data-testid="filter-container">
         <FilterItemClose>
           <Button
             onClick={onHideMenu}
@@ -60,9 +60,10 @@ function SideBarUI({ onChange, onRestartFilters, onShowMenu, onHideMenu }) {
             label="Tipo de gráfica"
             value={filterState.kindOfGraph}
             onChange={(e) => onChange("kindOfGraph", e)}
+            data-testid="kog"
           >
             {kindOfGraphs.map((graph, index) => (
-              <MenuItem value={graph} key={index}>
+              <MenuItem value={graph} key={index} data-testid="kog-item">
                 {graph}
               </MenuItem>
             ))}

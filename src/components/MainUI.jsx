@@ -13,14 +13,14 @@ function MainUI() {
   const [title] = useCreateChart(chartContainer);
 
   return (
-    <MainLayout>
+    <MainLayout data-testid="main-container">
       <ContainerMain>
         <ContainerMainTitle>
           <Title>Consumo internacional de Netflix</Title>
           <SubTitle>{title}</SubTitle>
         </ContainerMainTitle>
         <ContainerChart>
-          <canvas ref={chartContainer} />
+          <canvas data-testid="canvas" ref={chartContainer} />
         </ContainerChart>
       </ContainerMain>
     </MainLayout>
